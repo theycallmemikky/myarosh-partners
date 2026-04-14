@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { Reveal, RevealStagger, StaggerItem } from "@/components/Reveal";
 import { team } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function TeamPage() {
       <section className="py-24 md:py-32 border-b border-gold/15">
         <Container>
           <div className="grid md:grid-cols-12 gap-12 items-start">
-            <div className="md:col-span-5 md:sticky md:top-32">
+            <Reveal as="div" className="md:col-span-5 md:sticky md:top-32" dir="left">
               <div className="label mb-6">Руководитель коллегии</div>
               <h2 className="font-display text-5xl md:text-6xl text-parchment leading-[1.05]">
                 {lead.name}
@@ -38,8 +39,8 @@ export default function TeamPage() {
               <blockquote className="mt-10 font-display italic text-2xl md:text-3xl text-gold/90 leading-snug border-l-2 border-gold pl-6">
                 «{lead.principle}»
               </blockquote>
-            </div>
-            <div className="md:col-span-7 space-y-8">
+            </Reveal>
+            <Reveal as="div" className="md:col-span-7 space-y-8" delay={0.15} dir="right">
               <ul className="space-y-3">
                 {lead.credentials.map((c) => (
                   <li
@@ -54,7 +55,7 @@ export default function TeamPage() {
               <p className="drop-cap text-cream/80 text-lg leading-[1.8]">
                 {lead.bio}
               </p>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>
@@ -63,11 +64,15 @@ export default function TeamPage() {
       <section className="py-24 md:py-32">
         <Container>
           <div className="label mb-10">Адвокаты коллегии</div>
-          <div className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15">
+          <RevealStagger
+            gap={0.06}
+            className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15"
+          >
             {rest.map((t, i) => (
-              <article
+              <StaggerItem
+                as="article"
                 key={t.name}
-                className="bg-ink p-10 md:p-12 flex flex-col min-h-[360px]"
+                className="bg-ink p-10 md:p-12 flex flex-col min-h-[360px] group hover:bg-ink-soft transition-colors"
               >
                 <div className="flex items-baseline justify-between mb-6">
                   <span className="roman text-xl">
@@ -89,9 +94,9 @@ export default function TeamPage() {
                 <blockquote className="mt-6 pt-6 border-t border-gold/15 italic font-display text-gold/80 text-lg">
                   «{t.principle}»
                 </blockquote>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </RevealStagger>
         </Container>
       </section>
 

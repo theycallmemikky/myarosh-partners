@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { RevealStagger, StaggerItem } from "@/components/Reveal";
 import { services } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -23,11 +24,15 @@ export default function SpecializationPage() {
 
       <section className="py-24 md:py-32">
         <Container>
-          <div className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15">
+          <RevealStagger
+            gap={0.08}
+            className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15"
+          >
             {services.map((s) => (
-              <article
+              <StaggerItem
+                as="article"
                 key={s.num}
-                className="bg-ink p-10 md:p-14 flex flex-col min-h-[340px]"
+                className="bg-ink p-10 md:p-14 flex flex-col min-h-[340px] group hover:bg-ink-soft transition-colors"
               >
                 <div className="flex items-baseline justify-between mb-8">
                   <span className="roman text-3xl">{s.num}</span>
@@ -47,9 +52,9 @@ export default function SpecializationPage() {
                     Обсудить дело →
                   </a>
                 </div>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </RevealStagger>
         </Container>
       </section>
 
