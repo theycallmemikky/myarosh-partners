@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationForm } from "@/components/ConsultationForm";
+import { Reveal } from "@/components/Reveal";
 import { firm } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function ContactsPage() {
         <Container>
           <div className="grid md:grid-cols-12 gap-16">
             {/* Contact info */}
-            <div className="md:col-span-5 space-y-12">
+            <Reveal as="div" className="md:col-span-5 space-y-12" dir="left">
               <div>
                 <div className="label mb-4">Офис коллегии</div>
                 <address className="not-italic font-display text-3xl text-parchment leading-snug">
@@ -83,10 +84,10 @@ export default function ContactsPage() {
                   </a>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Form */}
-            <div className="md:col-span-7">
+            <Reveal as="div" className="md:col-span-7" dir="right" delay={0.15}>
               <div className="border border-gold/30 p-10 md:p-14 bg-ink-deep">
                 <div className="label mb-4">Форма обращения</div>
                 <h2 className="font-display text-4xl md:text-5xl text-parchment leading-[1.05] mb-10">
@@ -95,7 +96,7 @@ export default function ContactsPage() {
                 </h2>
                 <ConsultationForm />
               </div>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>

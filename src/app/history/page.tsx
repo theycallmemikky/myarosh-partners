@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { Reveal, RevealStagger, StaggerItem } from "@/components/Reveal";
 import { historyTimeline } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function HistoryPage() {
 
       <section className="py-24 md:py-32">
         <Container width="narrow">
-          <article className="space-y-8 text-cream/85 text-lg leading-[1.85]">
+          <Reveal as="article" className="space-y-8 text-cream/85 text-lg leading-[1.85]">
             <p className="drop-cap">
               Московская коллегия адвокатов имени генерал-майора юстиции А. С.
               Кудряшова окончательно сформирована 25 января 2003 года в
@@ -50,7 +51,7 @@ export default function HistoryPage() {
               было получено огнестрельное ранение. Награждён многочисленными
               государственными наградами, в числе которых ордена и медали.
             </p>
-          </article>
+          </Reveal>
         </Container>
       </section>
 
@@ -62,14 +63,18 @@ export default function HistoryPage() {
               className="absolute left-[70px] md:left-1/2 top-0 bottom-0 w-px bg-gold/25"
               aria-hidden
             />
-            <ol className="space-y-20">
-              {historyTimeline.map((item, i) => (
-                <li
-                  key={item.title}
-                  className={`relative grid md:grid-cols-2 gap-10 items-start ${
-                    i % 2 === 1 ? "md:text-right md:[&>*:first-child]:col-start-1" : ""
-                  }`}
-                >
+            <RevealStagger gap={0.12}>
+              <ol className="space-y-20">
+                {historyTimeline.map((item, i) => (
+                  <StaggerItem
+                    as="li"
+                    key={item.title}
+                    className={`relative grid md:grid-cols-2 gap-10 items-start ${
+                      i % 2 === 1
+                        ? "md:text-right md:[&>*:first-child]:col-start-1"
+                        : ""
+                    }`}
+                  >
                   <div
                     className={
                       i % 2 === 0
@@ -85,13 +90,14 @@ export default function HistoryPage() {
                       {item.body}
                     </p>
                   </div>
-                  <span
-                    className="absolute left-[63px] md:left-1/2 top-2 -translate-x-1/2 w-4 h-4 rotate-45 bg-gold"
-                    aria-hidden
-                  />
-                </li>
-              ))}
-            </ol>
+                    <span
+                      className="absolute left-[63px] md:left-1/2 top-2 -translate-x-1/2 w-4 h-4 rotate-45 bg-gold"
+                      aria-hidden
+                    />
+                  </StaggerItem>
+                ))}
+              </ol>
+            </RevealStagger>
           </div>
         </Container>
       </section>

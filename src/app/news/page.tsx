@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { Reveal, RevealStagger, StaggerItem } from "@/components/Reveal";
 import { pressMentions } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -55,9 +56,10 @@ export default function NewsPage() {
 
       <section className="py-24 md:py-32">
         <Container width="narrow">
-          <ol className="divide-y divide-gold/15 border-y border-gold/15">
-            {news.map((n, i) => (
-              <li key={n.title} className="py-12 md:py-16 group">
+          <RevealStagger gap={0.1}>
+            <ol className="divide-y divide-gold/15 border-y border-gold/15">
+              {news.map((n, i) => (
+                <StaggerItem as="li" key={n.title} className="py-12 md:py-16 group">
                 <div className="flex flex-wrap items-center gap-5 mb-6">
                   <span className="roman text-xl">
                     {["I", "II", "III", "IV", "V"][i]}
@@ -70,12 +72,13 @@ export default function NewsPage() {
                 <h2 className="font-display text-3xl md:text-4xl text-parchment leading-[1.15] group-hover:text-gold-light transition-colors">
                   {n.title}
                 </h2>
-                <p className="mt-6 text-cream/70 text-lg leading-relaxed">
-                  {n.excerpt}
-                </p>
-              </li>
-            ))}
-          </ol>
+                  <p className="mt-6 text-cream/70 text-lg leading-relaxed">
+                    {n.excerpt}
+                  </p>
+                </StaggerItem>
+              ))}
+            </ol>
+          </RevealStagger>
         </Container>
       </section>
 
@@ -85,9 +88,12 @@ export default function NewsPage() {
           <h2 className="font-display text-4xl md:text-5xl text-parchment mb-14 leading-tight">
             Избранные публичные выступления коллегии
           </h2>
-          <ol className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15">
+          <RevealStagger
+            gap={0.08}
+            className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15"
+          >
             {pressMentions.map((m) => (
-              <li key={m.title} className="bg-ink p-8 md:p-10">
+              <StaggerItem as="li" key={m.title} className="bg-ink p-8 md:p-10">
                 <div className="flex items-baseline justify-between mb-4">
                   <span className="roman text-2xl">{m.year}</span>
                   <span className="label opacity-60">{m.outlet}</span>
@@ -96,9 +102,9 @@ export default function NewsPage() {
                   {m.title}
                 </div>
                 <div className="mt-3 text-cream/50 text-sm">— {m.person}</div>
-              </li>
+              </StaggerItem>
             ))}
-          </ol>
+          </RevealStagger>
         </Container>
       </section>
 

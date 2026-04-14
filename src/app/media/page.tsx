@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { RevealStagger, StaggerItem, Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Медиатека",
@@ -41,9 +42,13 @@ export default function MediaPage() {
 
       <section className="py-24 md:py-32">
         <Container>
-          <div className="grid md:grid-cols-3 gap-px bg-gold/15 border border-gold/15">
+          <RevealStagger
+            gap={0.1}
+            className="grid md:grid-cols-3 gap-px bg-gold/15 border border-gold/15"
+          >
             {videos.map((v) => (
-              <article
+              <StaggerItem
+                as="article"
                 key={v.title}
                 className="bg-ink p-8 md:p-10 flex flex-col min-h-[420px] group cursor-pointer"
               >
@@ -73,12 +78,12 @@ export default function MediaPage() {
                 <h3 className="font-display text-2xl text-parchment leading-tight group-hover:text-gold-light transition-colors">
                   {v.title}
                 </h3>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
-          <p className="mt-14 text-center text-cream/60 italic font-display text-xl">
+          </RevealStagger>
+          <Reveal as="p" className="mt-14 text-center text-cream/60 italic font-display text-xl">
             Новые материалы публикуются по мере выхода в эфир.
-          </p>
+          </Reveal>
         </Container>
       </section>
 
