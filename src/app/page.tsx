@@ -1,65 +1,325 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/Container";
+import { SectionLabel } from "@/components/Ornament";
+import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { services, principles, team, pressMentions } from "@/lib/content";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+      <About />
+      <Services />
+      <Principles />
+      <TeamPreview />
+      <Press />
+      <ConsultationCTA />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden border-b border-gold/15">
+      <div
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #ba8b4c 1px, transparent 1px), linear-gradient(to bottom, #ba8b4c 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse at center top, rgba(186,139,76,0.12), transparent 60%)",
+        }}
+      />
+
+      <Container className="relative py-28 md:py-40">
+        <div
+          className="flex items-center gap-6 mb-14 rise"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <span className="roman text-base">Est. MMIII</span>
+          <span className="h-px flex-1 max-w-[200px] bg-rule" />
+          <span className="label">Московская коллегия адвокатов</span>
+        </div>
+
+        <h1
+          className="font-display text-[2.75rem] sm:text-6xl md:text-[5.5rem] leading-[0.95] text-parchment max-w-5xl rise"
+          style={{ animationDelay: "0.25s" }}
+        >
+          Справедливость
+          <br />
+          <span className="italic text-gold">как профессия.</span>
+          <br />
+          Двадцать пять лет
+          <br />
+          на стороне доверителей.
+        </h1>
+
+        <div
+          className="mt-14 grid gap-10 md:grid-cols-12 items-end rise"
+          style={{ animationDelay: "0.5s" }}
+        >
+          <p className="md:col-span-6 text-lg md:text-xl text-cream/75 max-w-xl leading-relaxed">
+            Коллегия имени генерал-майора юстиции{" "}
+            <span className="text-parchment">А. С. Кудряшова</span> —
+            объединение адвокатов, прошедших школу прокуратуры и научной
+            юриспруденции. Ведём дела в судах общей юрисдикции, арбитражах,
+            Верховном и Конституционном судах Российской Федерации.
           </p>
+
+          <div className="md:col-span-6 md:col-start-8 flex md:justify-end">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/contacts#form"
+                className="group inline-flex items-center gap-4 bg-gold text-ink px-8 py-5 text-[0.72rem] tracking-[0.25em] uppercase font-medium hover:bg-gold-light transition-colors"
+              >
+                Записаться
+                <span className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+              <Link
+                href="/specialization"
+                className="inline-flex items-center justify-center gap-3 border border-gold/40 px-8 py-5 text-[0.72rem] tracking-[0.25em] uppercase text-gold hover:bg-gold/5 transition-colors"
+              >
+                Сфера деятельности
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div
+          className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-t border-gold/20 pt-10 rise"
+          style={{ animationDelay: "0.7s" }}
+        >
+          {[
+            { k: "25+", v: "Лет в адвокатуре" },
+            { k: "14", v: "Действующих адвокатов" },
+            { k: "10", v: "Практик и направлений" },
+            { k: "24/7", v: "График работы" },
+          ].map((s) => (
+            <div key={s.v}>
+              <div className="font-display text-5xl md:text-6xl text-gold leading-none">
+                {s.k}
+              </div>
+              <div className="label mt-3">{s.v}</div>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </Container>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section className="py-28 md:py-40 border-b border-gold/15">
+      <Container>
+        <div className="grid gap-16 md:grid-cols-12">
+          <aside className="md:col-span-4">
+            <SectionLabel num="I">О коллегии</SectionLabel>
+            <div className="font-display italic text-3xl text-gold/80 leading-snug">
+              «В поисках справедливости к нам обращается большинство
+              наших&nbsp;клиентов».
+            </div>
+          </aside>
+          <div className="md:col-span-8 space-y-6 text-cream/80 text-lg leading-[1.75]">
+            <p className="drop-cap">
+              Московская коллегия адвокатов имени генерал-майора юстиции А. С.
+              Кудряшова создана в 2003 году в соответствии с Федеральным законом
+              «Об адвокатской деятельности и адвокатуре в Российской Федерации».
+              В переводе с латинского языка <em>justitia</em> означает
+              справедливость — именно в её поисках к нам обращается большинство
+              наших доверителей.
+            </p>
+            <p>
+              Учредители коллегии, как и её основатель — генерал-майор юстиции
+              А. С. Кудряшов, имеют богатый опыт работы в органах прокуратуры.
+              Нашими постоянными клиентами являются не только физические и
+              юридические лица, но и государственные организации, действующие
+              госслужащие, сотрудники правоохранительных органов.
+            </p>
+            <p>
+              Главная задача коллегии — защищать нарушенные права и интересы как
+              государства, так и частных лиц. Вот почему отличительные черты
+              нашей работы — <span className="text-gold">свобода</span>,{" "}
+              <span className="text-gold">независимость</span> и{" "}
+              <span className="text-gold">профессионализм</span>.
+            </p>
+            <div className="pt-6">
+              <Link
+                href="/history"
+                className="link-gold text-[0.78rem] tracking-[0.22em] uppercase"
+              >
+                Читать историю коллегии →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Services() {
+  return (
+    <section className="py-28 md:py-40 bg-ink-deep border-b border-gold/15">
+      <Container>
+        <SectionLabel num="II">Сфера деятельности</SectionLabel>
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-16">
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.95] text-parchment max-w-3xl">
+            Десять направлений,
+            <br />
+            <span className="italic text-gold">одна коллегия.</span>
+          </h2>
+          <Link
+            href="/specialization"
+            className="link-gold text-[0.78rem] tracking-[0.22em] uppercase whitespace-nowrap"
+          >
+            Все практики →
+          </Link>
+        </div>
+
+        <ol className="divide-y divide-gold/15 border-y border-gold/15">
+          {services.map((s) => (
+            <li
+              key={s.num}
+              className="group grid grid-cols-12 gap-6 py-8 md:py-10 hover:bg-gold/[0.03] transition-colors"
+            >
+              <div className="col-span-2 md:col-span-1">
+                <span className="roman text-xl">{s.num}</span>
+              </div>
+              <div className="col-span-10 md:col-span-5">
+                <h3 className="font-display text-2xl md:text-3xl text-parchment leading-tight group-hover:text-gold-light transition-colors">
+                  {s.title}
+                </h3>
+              </div>
+              <div className="col-span-12 md:col-span-6 text-cream/65 text-base leading-relaxed">
+                {s.blurb}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </section>
+  );
+}
+
+function Principles() {
+  return (
+    <section className="py-28 md:py-40 border-b border-gold/15">
+      <Container>
+        <SectionLabel num="III">Принципы работы</SectionLabel>
+        <h2 className="font-display text-5xl md:text-7xl text-parchment leading-[0.95] mb-16 max-w-4xl">
+          Почему доверители возвращаются{" "}
+          <span className="italic text-gold">из поколения в поколение.</span>
+        </h2>
+        <div className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15">
+          {principles.map((p, i) => (
+            <article
+              key={p.title}
+              className="relative bg-ink p-10 md:p-14 min-h-[280px]"
+            >
+              <div className="absolute top-6 right-8 roman text-lg opacity-40">
+                {["I", "II", "III", "IV"][i]}
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl text-parchment leading-tight max-w-sm">
+                {p.title}
+              </h3>
+              <p className="mt-6 text-cream/70 leading-relaxed max-w-md">
+                {p.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function TeamPreview() {
+  const featured = team.slice(0, 6);
+  return (
+    <section className="py-28 md:py-40 bg-ink-deep border-b border-gold/15">
+      <Container>
+        <SectionLabel num="IV">Команда</SectionLabel>
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-16">
+          <h2 className="font-display text-5xl md:text-7xl text-parchment leading-[0.95]">
+            Четырнадцать имён.
+            <br />
+            <span className="italic text-gold">Одна школа.</span>
+          </h2>
+          <Link
+            href="/komanda"
+            className="link-gold text-[0.78rem] tracking-[0.22em] uppercase whitespace-nowrap"
+          >
+            Вся команда →
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15 border border-gold/15">
+          {featured.map((t) => (
+            <article key={t.name} className="bg-ink p-8 md:p-10">
+              <div className="label mb-5">{t.role}</div>
+              <h3 className="font-display text-2xl md:text-[1.7rem] text-parchment leading-tight">
+                {t.name}
+              </h3>
+              <p className="mt-6 italic font-display text-gold/80 text-lg leading-snug border-l-2 border-gold/50 pl-4">
+                «{t.principle}»
+              </p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Press() {
+  return (
+    <section className="py-28 md:py-40 border-b border-gold/15">
+      <Container>
+        <SectionLabel num="V">В публичном поле</SectionLabel>
+        <h2 className="font-display text-5xl md:text-7xl text-parchment leading-[0.95] mb-16 max-w-4xl">
+          Упоминания и участие —{" "}
+          <span className="italic text-gold">
+            на передовой правовой повестки.
+          </span>
+        </h2>
+        <ol className="divide-y divide-gold/15 border-y border-gold/15">
+          {pressMentions.map((m) => (
+            <li
+              key={m.title}
+              className="grid grid-cols-12 gap-6 py-8 md:py-10 items-start"
+            >
+              <div className="col-span-3 md:col-span-2 roman text-2xl">
+                {m.year}
+              </div>
+              <div className="col-span-9 md:col-span-10">
+                <div className="label mb-2">{m.outlet}</div>
+                <div className="font-display text-2xl md:text-3xl text-parchment leading-snug">
+                  {m.title}
+                </div>
+                <div className="mt-2 text-cream/50 text-sm">— {m.person}</div>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-12 text-center">
+          <Link
+            href="/news"
+            className="link-gold text-[0.78rem] tracking-[0.22em] uppercase"
+          >
+            Все новости и публикации →
+          </Link>
+        </div>
+      </Container>
+    </section>
   );
 }
