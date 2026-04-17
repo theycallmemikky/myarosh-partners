@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const source = Source_Sans_3({
-  variable: "--font-source",
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · М. Ярош & Партнёры",
   },
   description:
-    "Московская коллегия адвокатов им. генерал-майора юстиции А.С. Кудряшова. С 2003 года защищаем интересы частных лиц, бизнеса и государственных организаций. Уголовная защита, арбитраж, Верховный и Конституционный суды.",
+    "Московская коллегия адвокатов им. генерал-майора юстиции А.С. Кудряшова. С 2003 года защищаем интересы частных лиц, бизнеса и государственных организаций.",
   openGraph: {
     title: "М. Ярош & Партнёры",
     description:
@@ -43,9 +43,9 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${cormorant.variable} ${source.variable} h-full`}
+      className={`${inter.variable} ${instrument.variable} h-full`}
     >
-      <body className="grain min-h-full flex flex-col bg-ink text-cream">
+      <body className="min-h-full flex flex-col bg-bg text-ink antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

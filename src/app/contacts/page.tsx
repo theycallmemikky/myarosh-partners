@@ -13,86 +13,83 @@ export default function ContactsPage() {
   return (
     <>
       <PageHeader
-        num="VII"
         kicker="Контактная информация"
         title="Приёмная коллегии"
         italic="открыта круглосуточно."
         lede="Первичная консультация по существу дела назначается по телефону или через форму обращения. Все обращения рассматриваются с соблюдением адвокатской тайны."
       />
 
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-28">
         <Container>
-          <div className="grid md:grid-cols-12 gap-16">
-            {/* Contact info */}
-            <Reveal as="div" className="md:col-span-5 space-y-12" dir="left">
+          <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+            <Reveal as="div" className="md:col-span-5 space-y-10" dir="left">
               <div>
-                <div className="label mb-4">Офис коллегии</div>
-                <address className="not-italic font-display text-3xl text-parchment leading-snug">
+                <div className="kicker mb-3">Офис коллегии</div>
+                <address className="not-italic font-display text-[1.5rem] md:text-[1.85rem] text-ink leading-[1.3]">
                   {firm.address}
                 </address>
               </div>
 
-              <div className="rule-gold" />
+              <div className="hairline" />
 
               <div>
-                <div className="label mb-4">Приёмная</div>
-                <div className="space-y-2">
+                <div className="kicker mb-3">Приёмная</div>
+                <div className="space-y-1.5">
                   {firm.phones.map((p) => (
                     <div key={p}>
                       <a
                         href={`tel:${p.replace(/\D/g, "")}`}
-                        className="link-gold font-display text-2xl"
+                        className="font-display text-[1.35rem] md:text-[1.5rem] text-ink link-underline"
                       >
                         {p}
                       </a>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 text-cream/60">
+                <div className="mt-3 text-muted">
                   График работы: {firm.schedule}
                 </div>
               </div>
 
-              <div className="rule-gold" />
+              <div className="hairline" />
 
               <div>
-                <div className="label mb-4">Электронная почта</div>
+                <div className="kicker mb-3">Электронная почта</div>
                 <a
                   href={`mailto:${firm.email}`}
-                  className="link-gold font-display text-2xl"
+                  className="font-display text-[1.35rem] md:text-[1.5rem] text-ink link-underline"
                 >
                   {firm.email}
                 </a>
               </div>
 
-              <div className="rule-gold" />
+              <div className="hairline" />
 
               <div>
-                <div className="label mb-4">Социальные сети</div>
-                <div className="flex flex-wrap gap-6">
-                  <a href={firm.social.instagram} className="link-gold">
+                <div className="kicker mb-3">Социальные сети</div>
+                <div className="flex flex-wrap gap-6 text-[0.95rem]">
+                  <a href={firm.social.instagram} className="link-underline">
                     Instagram
                   </a>
-                  <a href={firm.social.facebook} className="link-gold">
+                  <a href={firm.social.facebook} className="link-underline">
                     Facebook
                   </a>
-                  <a href={firm.social.youtube} className="link-gold">
+                  <a href={firm.social.youtube} className="link-underline">
                     YouTube
                   </a>
-                  <a href={firm.social.twitter} className="link-gold">
+                  <a href={firm.social.twitter} className="link-underline">
                     Twitter
                   </a>
                 </div>
               </div>
             </Reveal>
 
-            {/* Form */}
-            <Reveal as="div" className="md:col-span-7" dir="right" delay={0.15}>
-              <div className="border border-gold/30 p-10 md:p-14 bg-ink-deep">
-                <div className="label mb-4">Форма обращения</div>
-                <h2 className="font-display text-4xl md:text-5xl text-parchment leading-[1.05] mb-10">
-                  Расскажите о деле —<br />
-                  <span className="italic text-gold">мы перезвоним.</span>
+            <Reveal as="div" className="md:col-span-7" dir="right" delay={0.1}>
+              <div className="border border-line bg-surface p-8 md:p-12 rounded-md">
+                <div className="kicker mb-4">Форма обращения</div>
+                <h2 className="font-display display-tight text-[1.85rem] md:text-[2.5rem] text-ink mb-10">
+                  Расскажите о деле —{" "}
+                  <span className="italic text-muted">мы перезвоним.</span>
                 </h2>
                 <ConsultationForm />
               </div>

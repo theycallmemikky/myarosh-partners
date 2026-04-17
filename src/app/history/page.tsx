@@ -15,17 +15,19 @@ export default function HistoryPage() {
   return (
     <>
       <PageHeader
-        num="IV"
         kicker="История коллегии"
         title="От Главной военной прокуратуры —"
         italic="к Московской коллегии адвокатов."
         lede="Коллегия носит имя генерал-майора юстиции А. С. Кудряшова — участника боевых действий в Афганистане и Чеченской Республике, многолетнего руководителя кадров Главной военной прокуратуры России, основателя коллегии."
       />
 
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-28 border-b border-line">
         <Container width="narrow">
-          <Reveal as="article" className="space-y-8 text-cream/85 text-lg leading-[1.85]">
-            <p className="drop-cap">
+          <Reveal
+            as="article"
+            className="space-y-6 text-ink/85 text-[1.05rem] leading-[1.85]"
+          >
+            <p>
               Московская коллегия адвокатов имени генерал-майора юстиции А. С.
               Кудряшова окончательно сформирована 25 января 2003 года в
               соответствии с Федеральным законом «Об адвокатской деятельности и
@@ -55,50 +57,34 @@ export default function HistoryPage() {
         </Container>
       </section>
 
-      <section className="py-24 md:py-32 bg-ink-deep border-y border-gold/15">
+      <section className="py-20 md:py-28 bg-surface border-b border-line">
         <Container>
-          <div className="label mb-14 text-center">Хронология</div>
-          <div className="relative max-w-4xl mx-auto">
-            <div
-              className="absolute left-[70px] md:left-1/2 top-0 bottom-0 w-px bg-gold/25"
-              aria-hidden
-            />
-            <RevealStagger gap={0.12}>
-              <ol className="space-y-20">
-                {historyTimeline.map((item, i) => (
-                  <StaggerItem
-                    as="li"
-                    key={item.title}
-                    className={`relative grid md:grid-cols-2 gap-10 items-start ${
-                      i % 2 === 1
-                        ? "md:text-right md:[&>*:first-child]:col-start-1"
-                        : ""
-                    }`}
-                  >
-                  <div
-                    className={
-                      i % 2 === 0
-                        ? "md:pr-16 pl-24 md:pl-0"
-                        : "md:pl-16 md:col-start-2 pl-24 md:pl-16"
-                    }
-                  >
-                    <div className="roman text-2xl mb-3">{item.year}</div>
-                    <h3 className="font-display text-3xl md:text-4xl text-parchment leading-tight">
+          <div className="kicker mb-12">Хронология</div>
+          <RevealStagger gap={0.08}>
+            <ol className="border-t border-line">
+              {historyTimeline.map((item) => (
+                <StaggerItem
+                  as="li"
+                  key={item.title}
+                  className="grid grid-cols-12 gap-6 py-10 md:py-12 border-b border-line items-start"
+                >
+                  <div className="col-span-12 md:col-span-3">
+                    <div className="font-display text-[1.75rem] md:text-[2rem] text-ink leading-none">
+                      {item.year}
+                    </div>
+                  </div>
+                  <div className="col-span-12 md:col-span-9 max-w-3xl">
+                    <h3 className="font-display text-[1.5rem] md:text-[1.85rem] text-ink leading-[1.2]">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-cream/70 leading-relaxed">
+                    <p className="mt-4 text-muted leading-relaxed">
                       {item.body}
                     </p>
                   </div>
-                    <span
-                      className="absolute left-[63px] md:left-1/2 top-2 -translate-x-1/2 w-4 h-4 rotate-45 bg-gold"
-                      aria-hidden
-                    />
-                  </StaggerItem>
-                ))}
-              </ol>
-            </RevealStagger>
-          </div>
+                </StaggerItem>
+              ))}
+            </ol>
+          </RevealStagger>
         </Container>
       </section>
 

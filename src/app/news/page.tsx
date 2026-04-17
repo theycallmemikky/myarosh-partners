@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
-import { Reveal, RevealStagger, StaggerItem } from "@/components/Reveal";
+import { RevealStagger, StaggerItem } from "@/components/Reveal";
 import { pressMentions } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -29,7 +29,8 @@ const news = [
   {
     date: "05.04.2023",
     category: "Форум",
-    title: "Участие экспертов коллегии в XIII Форуме инновационных технологий InfoSpace",
+    title:
+      "Участие экспертов коллегии в XIII Форуме инновационных технологий InfoSpace",
     excerpt:
       "Обсуждение правового регулирования цифровых технологий, блокчейна и защиты интеллектуальной собственности в условиях новой экономики.",
   },
@@ -47,32 +48,30 @@ export default function NewsPage() {
   return (
     <>
       <PageHeader
-        num="VI"
         kicker="Новости и публикации"
         title="Коллегия"
         italic="в правовой повестке."
         lede="Участие в федеральных форумах, публикации в авторитетных изданиях, комментарии по резонансным делам."
       />
 
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-28">
         <Container width="narrow">
-          <RevealStagger gap={0.1}>
-            <ol className="divide-y divide-gold/15 border-y border-gold/15">
-              {news.map((n, i) => (
-                <StaggerItem as="li" key={n.title} className="py-12 md:py-16 group">
-                <div className="flex flex-wrap items-center gap-5 mb-6">
-                  <span className="roman text-xl">
-                    {["I", "II", "III", "IV", "V"][i]}
-                  </span>
-                  <span className="label">{n.category}</span>
-                  <span className="text-cream/40 text-sm tracking-wider">
-                    · {n.date}
-                  </span>
-                </div>
-                <h2 className="font-display text-3xl md:text-4xl text-parchment leading-[1.15] group-hover:text-gold-light transition-colors">
-                  {n.title}
-                </h2>
-                  <p className="mt-6 text-cream/70 text-lg leading-relaxed">
+          <RevealStagger gap={0.06}>
+            <ol className="border-t border-line">
+              {news.map((n) => (
+                <StaggerItem
+                  as="li"
+                  key={n.title}
+                  className="py-10 md:py-14 border-b border-line group"
+                >
+                  <div className="flex flex-wrap items-center gap-4 mb-5 text-[0.82rem]">
+                    <span className="kicker">{n.category}</span>
+                    <span className="text-muted">· {n.date}</span>
+                  </div>
+                  <h2 className="font-display text-[1.65rem] md:text-[2.15rem] text-ink leading-[1.15]">
+                    {n.title}
+                  </h2>
+                  <p className="mt-5 text-muted text-[1.02rem] leading-relaxed">
                     {n.excerpt}
                   </p>
                 </StaggerItem>
@@ -82,26 +81,32 @@ export default function NewsPage() {
         </Container>
       </section>
 
-      <section className="py-24 md:py-32 bg-ink-deep border-y border-gold/15">
+      <section className="py-20 md:py-28 bg-surface border-y border-line">
         <Container>
-          <div className="label mb-8">Архив упоминаний</div>
-          <h2 className="font-display text-4xl md:text-5xl text-parchment mb-14 leading-tight">
+          <div className="kicker mb-6">Архив упоминаний</div>
+          <h2 className="font-display display-tight text-[2rem] md:text-[3rem] text-ink mb-14 max-w-3xl">
             Избранные публичные выступления коллегии
           </h2>
           <RevealStagger
-            gap={0.08}
-            className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15"
+            gap={0.06}
+            className="grid md:grid-cols-2 border-t border-line"
           >
             {pressMentions.map((m) => (
-              <StaggerItem as="li" key={m.title} className="bg-ink p-8 md:p-10">
+              <StaggerItem
+                as="li"
+                key={m.title}
+                className="p-8 md:p-10 border-b border-line md:border-r md:[&:nth-child(2n)]:border-r-0"
+              >
                 <div className="flex items-baseline justify-between mb-4">
-                  <span className="roman text-2xl">{m.year}</span>
-                  <span className="label opacity-60">{m.outlet}</span>
+                  <span className="font-display text-[1.5rem] text-ink tabular-nums">
+                    {m.year}
+                  </span>
+                  <span className="kicker">{m.outlet}</span>
                 </div>
-                <div className="font-display text-2xl text-parchment leading-snug">
+                <div className="font-display text-[1.3rem] md:text-[1.45rem] text-ink leading-snug">
                   {m.title}
                 </div>
-                <div className="mt-3 text-cream/50 text-sm">— {m.person}</div>
+                <div className="mt-3 text-muted text-[0.9rem]">— {m.person}</div>
               </StaggerItem>
             ))}
           </RevealStagger>

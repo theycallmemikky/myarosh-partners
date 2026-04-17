@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { SectionLabel } from "@/components/Ornament";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
 import { Reveal, RevealStagger, StaggerItem } from "@/components/Reveal";
-import { ParallaxBackground } from "@/components/Parallax";
 import { services, principles, team, pressMentions } from "@/lib/content";
 
 export default function Home() {
@@ -22,77 +20,42 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-gold/15 min-h-[85vh] flex items-center">
-      <ParallaxBackground
-        speed={-120}
-        className="absolute inset-0 -top-20 -bottom-20 opacity-[0.07] pointer-events-none"
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #ba8b4c 1px, transparent 1px), linear-gradient(to bottom, #ba8b4c 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </ParallaxBackground>
-
-      <ParallaxBackground
-        speed={80}
-        className="absolute inset-0 -top-40 -bottom-40 pointer-events-none"
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at center top, rgba(186,139,76,0.14), transparent 60%)",
-          }}
-        />
-      </ParallaxBackground>
-
-      <Container className="relative py-28 md:py-40 w-full">
-        <RevealStagger gap={0.15}>
-          <StaggerItem className="flex items-center gap-6 mb-14">
-            <span className="roman text-base">Est. MMIII</span>
-            <span className="h-px flex-1 max-w-[200px] bg-rule" />
-            <span className="label">Московская коллегия адвокатов</span>
+    <section className="relative border-b border-line">
+      <Container className="pt-20 md:pt-32 pb-20 md:pb-28">
+        <RevealStagger gap={0.12}>
+          <StaggerItem className="kicker mb-10">
+            Московская коллегия адвокатов · с 2003
           </StaggerItem>
 
           <StaggerItem>
-            <h1 className="font-display text-[2.75rem] sm:text-6xl md:text-[5.5rem] leading-[0.95] text-parchment max-w-5xl">
-              Справедливость
-              <br />
-              <span className="italic text-gold">как профессия.</span>
-              <br />
-              Двадцать пять лет
-              <br />
-              на стороне доверителей.
+            <h1 className="font-display display-tight text-[3rem] sm:text-[4.5rem] md:text-[7rem] text-ink max-w-[1100px]">
+              Справедливость —{" "}
+              <span className="italic text-muted">как профессия.</span>
             </h1>
           </StaggerItem>
 
-          <StaggerItem className="mt-14 grid gap-10 md:grid-cols-12 items-end">
-            <p className="md:col-span-6 text-lg md:text-xl text-cream/75 max-w-xl leading-relaxed">
-              Коллегия имени генерал-майора юстиции{" "}
-              <span className="text-parchment">А. С. Кудряшова</span> —
-              объединение адвокатов, прошедших школу прокуратуры и научной
-              юриспруденции. Ведём дела в судах общей юрисдикции, арбитражах,
-              Верховном и Конституционном судах Российской Федерации.
+          <StaggerItem className="mt-12 md:mt-16 grid gap-10 md:grid-cols-12 items-end">
+            <p className="md:col-span-6 text-[1.1rem] md:text-[1.2rem] text-ink/80 max-w-xl leading-relaxed">
+              Коллегия имени генерал-майора юстиции А. С. Кудряшова — объединение
+              адвокатов, прошедших школу прокуратуры и научной юриспруденции.
+              Ведём дела в судах общей юрисдикции, арбитражах, Верховном и
+              Конституционном судах Российской Федерации.
             </p>
 
             <div className="md:col-span-6 md:col-start-8 flex md:justify-end">
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/contacts#form"
-                  className="group inline-flex items-center gap-4 bg-gold text-ink px-8 py-5 text-[0.72rem] tracking-[0.25em] uppercase font-medium hover:bg-gold-light transition-colors"
+                  className="group inline-flex items-center gap-3 bg-ink text-bg px-6 py-3.5 text-[0.95rem] rounded-full hover:bg-ink-2 transition-colors"
                 >
                   Записаться
-                  <span className="transition-transform group-hover:translate-x-1">
+                  <span className="transition-transform group-hover:translate-x-0.5">
                     →
                   </span>
                 </Link>
                 <Link
                   href="/specialization"
-                  className="inline-flex items-center justify-center gap-3 border border-gold/40 px-8 py-5 text-[0.72rem] tracking-[0.25em] uppercase text-gold hover:bg-gold/5 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 border border-ink/20 px-6 py-3.5 text-[0.95rem] rounded-full hover:border-ink transition-colors"
                 >
                   Сфера деятельности
                 </Link>
@@ -100,18 +63,18 @@ function Hero() {
             </div>
           </StaggerItem>
 
-          <StaggerItem className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-t border-gold/20 pt-10">
+          <StaggerItem className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 border-t border-line pt-10">
             {[
-              { k: "25+", v: "Лет в адвокатуре" },
-              { k: "14", v: "Действующих адвокатов" },
-              { k: "10", v: "Практик и направлений" },
-              { k: "24/7", v: "График работы" },
+              { k: "25+", v: "лет в адвокатуре" },
+              { k: "14", v: "действующих адвокатов" },
+              { k: "10", v: "практик и направлений" },
+              { k: "24/7", v: "график работы" },
             ].map((s) => (
               <div key={s.v}>
-                <div className="font-display text-5xl md:text-6xl text-gold leading-none">
+                <div className="font-display text-[3rem] md:text-[4rem] text-ink leading-none">
                   {s.k}
                 </div>
-                <div className="label mt-3">{s.v}</div>
+                <div className="mt-3 text-[0.88rem] text-muted">{s.v}</div>
               </div>
             ))}
           </StaggerItem>
@@ -123,22 +86,22 @@ function Hero() {
 
 function About() {
   return (
-    <section className="py-28 md:py-40 border-b border-gold/15">
+    <section className="py-24 md:py-36 border-b border-line">
       <Container>
-        <div className="grid gap-16 md:grid-cols-12">
+        <div className="grid gap-12 md:gap-20 md:grid-cols-12">
           <Reveal as="div" className="md:col-span-4" dir="left">
-            <SectionLabel num="I">О коллегии</SectionLabel>
-            <div className="font-display italic text-3xl text-gold/80 leading-snug">
-              «В поисках справедливости к нам обращается большинство
-              наших&nbsp;клиентов».
+            <div className="kicker mb-6">О коллегии</div>
+            <div className="font-display italic text-[1.75rem] md:text-[2.25rem] text-ink leading-[1.15]">
+              «В поисках справедливости к нам обращается большинство наших
+              клиентов».
             </div>
           </Reveal>
           <Reveal
             as="div"
-            className="md:col-span-8 space-y-6 text-cream/80 text-lg leading-[1.75]"
-            delay={0.15}
+            className="md:col-span-7 md:col-start-6 space-y-6 text-ink/80 text-[1.05rem] leading-[1.75]"
+            delay={0.1}
           >
-            <p className="drop-cap">
+            <p>
               Московская коллегия адвокатов имени генерал-майора юстиции А. С.
               Кудряшова создана в 2003 году в соответствии с Федеральным законом
               «Об адвокатской деятельности и адвокатуре в Российской Федерации».
@@ -147,24 +110,19 @@ function About() {
               наших доверителей.
             </p>
             <p>
-              Учредители коллегии, как и её основатель — генерал-майор юстиции
-              А. С. Кудряшов, имеют богатый опыт работы в органах прокуратуры.
-              Нашими постоянными клиентами являются не только физические и
-              юридические лица, но и государственные организации, действующие
-              госслужащие, сотрудники правоохранительных органов.
+              Учредители коллегии, как и её основатель — генерал-майор юстиции А.
+              С. Кудряшов, имеют богатый опыт работы в органах прокуратуры.
+              Нашими постоянными клиентами являются физические и юридические
+              лица, государственные организации, действующие госслужащие,
+              сотрудники правоохранительных органов.
             </p>
             <p>
               Главная задача коллегии — защищать нарушенные права и интересы как
-              государства, так и частных лиц. Вот почему отличительные черты
-              нашей работы — <span className="text-gold">свобода</span>,{" "}
-              <span className="text-gold">независимость</span> и{" "}
-              <span className="text-gold">профессионализм</span>.
+              государства, так и частных лиц. Отличительные черты нашей работы —
+              свобода, независимость и профессионализм.
             </p>
-            <div className="pt-6">
-              <Link
-                href="/history"
-                className="link-gold text-[0.78rem] tracking-[0.22em] uppercase"
-              >
+            <div className="pt-4">
+              <Link href="/history" className="link-quiet text-[0.95rem]">
                 Читать историю коллегии →
               </Link>
             </div>
@@ -177,42 +135,41 @@ function About() {
 
 function Services() {
   return (
-    <section className="py-28 md:py-40 bg-ink-deep border-b border-gold/15">
+    <section className="py-24 md:py-36 border-b border-line">
       <Container>
         <Reveal>
-          <SectionLabel num="II">Сфера деятельности</SectionLabel>
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-16">
-            <h2 className="font-display text-5xl md:text-7xl leading-[0.95] text-parchment max-w-3xl">
-              Десять направлений,
-              <br />
-              <span className="italic text-gold">одна коллегия.</span>
+          <div className="kicker mb-6">Сфера деятельности</div>
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14">
+            <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink max-w-3xl">
+              Десять направлений,{" "}
+              <span className="italic text-muted">одна коллегия.</span>
             </h2>
             <Link
               href="/specialization"
-              className="link-gold text-[0.78rem] tracking-[0.22em] uppercase whitespace-nowrap"
+              className="link-quiet text-[0.95rem] whitespace-nowrap"
             >
               Все практики →
             </Link>
           </div>
         </Reveal>
 
-        <RevealStagger gap={0.05}>
-          <ol className="divide-y divide-gold/15 border-y border-gold/15">
-            {services.map((s) => (
+        <RevealStagger gap={0.04}>
+          <ol className="border-t border-line">
+            {services.map((s, i) => (
               <StaggerItem
                 as="li"
                 key={s.num}
-                className="group grid grid-cols-12 gap-6 py-8 md:py-10 hover:bg-gold/[0.03] transition-colors"
+                className="group grid grid-cols-12 gap-6 py-7 md:py-8 border-b border-line hover:bg-surface transition-colors"
               >
-                <div className="col-span-2 md:col-span-1">
-                  <span className="roman text-xl">{s.num}</span>
+                <div className="col-span-2 md:col-span-1 text-muted text-[0.9rem] tabular-nums pt-1">
+                  {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="col-span-10 md:col-span-5">
-                  <h3 className="font-display text-2xl md:text-3xl text-parchment leading-tight group-hover:text-gold-light transition-colors">
+                  <h3 className="font-display text-[1.35rem] md:text-[1.75rem] text-ink leading-tight">
                     {s.title}
                   </h3>
                 </div>
-                <div className="col-span-12 md:col-span-6 text-cream/65 text-base leading-relaxed">
+                <div className="col-span-12 md:col-span-6 text-muted text-[0.98rem] leading-relaxed">
                   {s.blurb}
                 </div>
               </StaggerItem>
@@ -226,32 +183,29 @@ function Services() {
 
 function Principles() {
   return (
-    <section className="py-28 md:py-40 border-b border-gold/15">
+    <section className="py-24 md:py-36 border-b border-line bg-surface">
       <Container>
         <Reveal>
-          <SectionLabel num="III">Принципы работы</SectionLabel>
-          <h2 className="font-display text-5xl md:text-7xl text-parchment leading-[0.95] mb-16 max-w-4xl">
+          <div className="kicker mb-6">Принципы работы</div>
+          <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink mb-14 max-w-4xl">
             Почему доверители возвращаются{" "}
-            <span className="italic text-gold">из поколения в поколение.</span>
+            <span className="italic text-muted">из поколения в поколение.</span>
           </h2>
         </Reveal>
-        <RevealStagger
-          gap={0.1}
-          className="grid md:grid-cols-2 gap-px bg-gold/15 border border-gold/15"
-        >
+        <RevealStagger gap={0.08} className="grid md:grid-cols-2 gap-10 md:gap-12">
           {principles.map((p, i) => (
             <StaggerItem
               as="article"
               key={p.title}
-              className="relative bg-ink p-10 md:p-14 min-h-[280px]"
+              className="border-t border-line pt-8"
             >
-              <div className="absolute top-6 right-8 roman text-lg opacity-40">
-                {["I", "II", "III", "IV"][i]}
+              <div className="text-muted text-[0.88rem] tabular-nums mb-4">
+                {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="font-display text-3xl md:text-4xl text-parchment leading-tight max-w-sm">
+              <h3 className="font-display text-[1.5rem] md:text-[1.85rem] text-ink leading-[1.2] max-w-sm">
                 {p.title}
               </h3>
-              <p className="mt-6 text-cream/70 leading-relaxed max-w-md">
+              <p className="mt-4 text-muted leading-relaxed max-w-md">
                 {p.body}
               </p>
             </StaggerItem>
@@ -265,39 +219,38 @@ function Principles() {
 function TeamPreview() {
   const featured = team.slice(0, 6);
   return (
-    <section className="py-28 md:py-40 bg-ink-deep border-b border-gold/15">
+    <section className="py-24 md:py-36 border-b border-line">
       <Container>
         <Reveal>
-          <SectionLabel num="IV">Команда</SectionLabel>
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-16">
-            <h2 className="font-display text-5xl md:text-7xl text-parchment leading-[0.95]">
-              Четырнадцать имён.
-              <br />
-              <span className="italic text-gold">Одна школа.</span>
+          <div className="kicker mb-6">Команда</div>
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14">
+            <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink">
+              Четырнадцать имён.{" "}
+              <span className="italic text-muted">Одна школа.</span>
             </h2>
             <Link
               href="/komanda"
-              className="link-gold text-[0.78rem] tracking-[0.22em] uppercase whitespace-nowrap"
+              className="link-quiet text-[0.95rem] whitespace-nowrap"
             >
               Вся команда →
             </Link>
           </div>
         </Reveal>
         <RevealStagger
-          gap={0.08}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15 border border-gold/15"
+          gap={0.06}
+          className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-line"
         >
           {featured.map((t) => (
             <StaggerItem
               as="article"
               key={t.name}
-              className="group bg-ink p-8 md:p-10 transition-colors hover:bg-ink-soft"
+              className="group p-8 md:p-10 border-b border-line md:border-r last:border-r-0 md:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0 hover:bg-surface transition-colors"
             >
-              <div className="label mb-5">{t.role}</div>
-              <h3 className="font-display text-2xl md:text-[1.7rem] text-parchment leading-tight group-hover:text-gold-light transition-colors">
+              <div className="kicker mb-5">{t.role}</div>
+              <h3 className="font-display text-[1.4rem] md:text-[1.6rem] text-ink leading-tight">
                 {t.name}
               </h3>
-              <p className="mt-6 italic font-display text-gold/80 text-lg leading-snug border-l-2 border-gold/50 pl-4">
+              <p className="mt-5 italic font-display text-muted text-[1.05rem] leading-snug">
                 «{t.principle}»
               </p>
             </StaggerItem>
@@ -310,44 +263,41 @@ function TeamPreview() {
 
 function Press() {
   return (
-    <section className="py-28 md:py-40 border-b border-gold/15">
+    <section className="py-24 md:py-36 border-b border-line">
       <Container>
         <Reveal>
-          <SectionLabel num="V">В публичном поле</SectionLabel>
-          <h2 className="font-display text-5xl md:text-7xl text-parchment leading-[0.95] mb-16 max-w-4xl">
+          <div className="kicker mb-6">В публичном поле</div>
+          <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink mb-14 max-w-4xl">
             Упоминания и участие —{" "}
-            <span className="italic text-gold">
+            <span className="italic text-muted">
               на передовой правовой повестки.
             </span>
           </h2>
         </Reveal>
-        <RevealStagger gap={0.08}>
-          <ol className="divide-y divide-gold/15 border-y border-gold/15">
+        <RevealStagger gap={0.06}>
+          <ol className="border-t border-line">
             {pressMentions.map((m) => (
               <StaggerItem
                 as="li"
                 key={m.title}
-                className="grid grid-cols-12 gap-6 py-8 md:py-10 items-start"
+                className="grid grid-cols-12 gap-6 py-7 md:py-9 border-b border-line items-start"
               >
-                <div className="col-span-3 md:col-span-2 roman text-2xl">
+                <div className="col-span-3 md:col-span-2 font-display text-[1.75rem] text-ink tabular-nums">
                   {m.year}
                 </div>
                 <div className="col-span-9 md:col-span-10">
-                  <div className="label mb-2">{m.outlet}</div>
-                  <div className="font-display text-2xl md:text-3xl text-parchment leading-snug">
+                  <div className="kicker mb-2">{m.outlet}</div>
+                  <div className="font-display text-[1.35rem] md:text-[1.65rem] text-ink leading-snug">
                     {m.title}
                   </div>
-                  <div className="mt-2 text-cream/50 text-sm">— {m.person}</div>
+                  <div className="mt-2 text-muted text-[0.9rem]">— {m.person}</div>
                 </div>
               </StaggerItem>
             ))}
           </ol>
         </RevealStagger>
-        <div className="mt-12 text-center">
-          <Link
-            href="/news"
-            className="link-gold text-[0.78rem] tracking-[0.22em] uppercase"
-          >
+        <div className="mt-10">
+          <Link href="/news" className="link-quiet text-[0.95rem]">
             Все новости и публикации →
           </Link>
         </div>
