@@ -49,7 +49,7 @@ export function Header() {
           </a>
           <Link
             href="/contacts#form"
-            className="inline-flex items-center gap-2 bg-ink text-bg px-4 py-2 text-[0.82rem] hover:bg-ink-2 transition-colors rounded-full"
+            className="inline-flex items-center gap-2 bg-ink text-bg px-5 py-2.5 min-h-[44px] text-[0.85rem] hover:bg-ink-2 transition-colors rounded-full"
           >
             Записаться
           </Link>
