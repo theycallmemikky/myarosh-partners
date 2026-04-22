@@ -85,7 +85,7 @@ export default function ContactsPage() {
             </Reveal>
 
             <Reveal as="div" className="md:col-span-7" dir="right" delay={0.1}>
-              <div className="border border-line bg-surface p-8 md:p-12 rounded-md">
+              <div className="border border-line bg-surface p-8 md:p-12">
                 <div className="kicker mb-4">Форма обращения</div>
                 <h2 className="font-display display-tight text-[1.85rem] md:text-[2.5rem] text-ink mb-10">
                   Расскажите о деле —{" "}

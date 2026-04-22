@@ -14,7 +14,7 @@ export function ConsultationForm() {
       }}
     >
       {sent ? (
-        <div className="border border-line bg-surface p-10 rounded-md">
+        <div className="border border-line bg-surface p-10">
           <h3 className="font-display text-[1.75rem] text-ink leading-snug">
             Обращение принято.
           </h3>
@@ -33,7 +33,7 @@ export function ConsultationForm() {
             <textarea
               name="message"
               rows={5}
-              className="w-full bg-surface border border-line px-4 py-3 text-ink placeholder:text-muted-2 focus:outline-none focus:border-ink transition-colors resize-none rounded-md"
+              className="w-full bg-surface border border-line px-4 py-3 text-ink placeholder:text-muted-2 focus:outline-none focus:border-ink transition-colors resize-none"
               placeholder="Опишите ситуацию в двух-трёх предложениях. Конфиденциальность гарантирована."
             />
           </div>
@@ -80,7 +80,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="w-full bg-surface border border-line px-4 py-3 text-ink placeholder:text-muted-2 focus:outline-none focus:border-ink transition-colors rounded-md"
+        className="w-full bg-surface border border-line px-4 py-3 text-ink placeholder:text-muted-2 focus:outline-none focus:border-ink transition-colors"
       />
     </div>
   );

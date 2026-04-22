@@ -45,7 +45,7 @@ export default function MediaPage() {
                 key={v.title}
                 className="group cursor-pointer"
               >
-                <div className="aspect-[4/3] bg-surface border border-line relative overflow-hidden mb-5 group-hover:border-ink transition-colors rounded-md">
+                <div className="aspect-[4/3] bg-surface border border-line relative overflow-hidden mb-5 group-hover:border-ink transition-colors">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full bg-ink text-bg flex items-center justify-center group-hover:scale-110 transition-transform">
                       <span className="text-[1rem] ml-0.5">▶</span>
