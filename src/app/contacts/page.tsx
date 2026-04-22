@@ -89,7 +89,7 @@ export default function ContactsPage() {
                 <div className="kicker mb-4">Форма обращения</div>
                 <h2 className="font-display display-tight text-[1.85rem] md:text-[2.5rem] text-ink mb-10">
                   Расскажите о деле —{" "}
-                  <span className="italic text-muted">мы перезвоним.</span>
+                  <span className="italic">мы перезвоним.</span>
                 </h2>
                 <ConsultationForm />
               </div>

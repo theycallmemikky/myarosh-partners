@@ -24,7 +24,7 @@ export function PageHeader({
               {italic && (
                 <>
                   {" "}
-                  <span className="italic text-muted">{italic}</span>
+                  <span className="italic">{italic}</span>
                 </>
               )}
             </h1>

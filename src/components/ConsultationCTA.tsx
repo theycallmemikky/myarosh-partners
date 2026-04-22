@@ -10,7 +10,7 @@ export function ConsultationCTA() {
           <div className="kicker mb-6">Первый шаг</div>
           <h2 className="font-display display-tight text-[2.25rem] md:text-[3.75rem] text-ink">
             Расскажите о деле —{" "}
-            <span className="italic text-muted">получите оценку перспектив.</span>
+            <span className="italic">получите оценку перспектив.</span>
           </h2>
           <p className="mt-8 max-w-xl text-muted text-[1.05rem] leading-relaxed">
             Каждое сотрудничество начинается с анализа ситуации и её правовой

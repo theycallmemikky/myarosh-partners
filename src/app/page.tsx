@@ -30,7 +30,7 @@ function Hero() {
           <StaggerItem>
             <h1 className="font-display display-tight text-[3rem] sm:text-[4.5rem] md:text-[7rem] text-ink max-w-[1100px]">
               Справедливость —{" "}
-              <span className="italic text-muted">как профессия.</span>
+              <span className="italic">как профессия.</span>
             </h1>
           </StaggerItem>
 
@@ -142,7 +142,7 @@ function Services() {
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14">
             <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink max-w-3xl">
               Десять направлений,{" "}
-              <span className="italic text-muted">одна коллегия.</span>
+              <span className="italic">одна коллегия.</span>
             </h2>
             <Link
               href="/specialization"
@@ -189,7 +189,7 @@ function Principles() {
           <div className="kicker mb-6">Принципы работы</div>
           <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink mb-14 max-w-4xl">
             Почему доверители возвращаются{" "}
-            <span className="italic text-muted">из поколения в поколение.</span>
+            <span className="italic">из поколения в поколение.</span>
           </h2>
         </Reveal>
         <RevealStagger gap={0.08} className="grid md:grid-cols-2 gap-10 md:gap-12">
@@ -226,7 +226,7 @@ function TeamPreview() {
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14">
             <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink">
               Четырнадцать имён.{" "}
-              <span className="italic text-muted">Одна школа.</span>
+              <span className="italic">Одна школа.</span>
             </h2>
             <Link
               href="/komanda"
@@ -269,7 +269,7 @@ function Press() {
           <div className="kicker mb-6">В публичном поле</div>
           <h2 className="font-display display-tight text-[2.5rem] md:text-[4.5rem] text-ink mb-14 max-w-4xl">
             Упоминания и участие —{" "}
-            <span className="italic text-muted">
+            <span className="italic">
               на передовой правовой повестки.
             </span>
           </h2>

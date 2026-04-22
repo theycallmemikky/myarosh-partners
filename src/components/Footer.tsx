@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-5">
             <div className="font-display display-tight text-[2.5rem] md:text-[3.25rem] text-ink">
               Свобода. Независимость.{" "}
-              <span className="italic text-muted">Профессионализм.</span>
+              <span className="italic">Профессионализм.</span>
             </div>
             <p className="mt-6 max-w-md text-muted text-[0.95rem] leading-relaxed">
               {firm.fullName} работает с 2003 года и объединяет адвокатов,
