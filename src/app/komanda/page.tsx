@@ -81,7 +81,7 @@ export default function TeamPage() {
                 className="group p-8 md:p-12 flex flex-col min-h-[340px] border-b border-line md:border-r md:[&:nth-child(2n)]:border-r-0 hover:bg-surface transition-colors"
               >
                 <div className="flex items-baseline justify-between mb-6">
-                  <span className="text-muted tabular-nums text-[0.88rem]">
+                  <span className="font-display text-[1.5rem] text-ink tabular-nums leading-none">
                     {String(i + 2).padStart(2, "0")}
                   </span>
                   <span className="kicker">{t.role}</span>

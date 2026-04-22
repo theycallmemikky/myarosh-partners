@@ -161,7 +161,7 @@ function Services() {
                 key={s.num}
                 className="group grid grid-cols-12 gap-6 py-7 md:py-8 border-b border-line hover:bg-surface transition-colors"
               >
-                <div className="col-span-2 md:col-span-1 text-muted text-[0.9rem] tabular-nums pt-1">
+                <div className="col-span-2 md:col-span-1 font-display text-[1.5rem] text-ink tabular-nums leading-none pt-1">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="col-span-10 md:col-span-5">
@@ -199,7 +199,7 @@ function Principles() {
               key={p.title}
               className="border-t border-line pt-8"
             >
-              <div className="text-muted text-[0.88rem] tabular-nums mb-4">
+              <div className="font-display text-[1.5rem] text-ink tabular-nums leading-none mb-4">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <h3 className="font-display text-[1.5rem] md:text-[1.85rem] text-ink leading-[1.2] max-w-sm">
