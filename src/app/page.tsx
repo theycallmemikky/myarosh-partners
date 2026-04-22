@@ -30,7 +30,7 @@ function Hero() {
           <StaggerItem>
             <h1 className="font-display display-tight text-[3rem] sm:text-[4.5rem] md:text-[7rem] text-ink max-w-[1100px]">
               Справедливость —{" "}
-              <span className="italic">как профессия.</span>
+              <span className="italic">как профессия</span>.
             </h1>
           </StaggerItem>
 
